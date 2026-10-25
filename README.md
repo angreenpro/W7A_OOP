@@ -1,5 +1,4 @@
-# Lab W07 – Quản Lý & Cấp Phát Thiết Bị Dạy Học
-
+# W07
 ---
 
 ## 1. Quy tắc nghiệp vụ thiết bị
