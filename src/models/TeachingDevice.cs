@@ -24,13 +24,10 @@ public abstract class TeachingDevice : IIdentifiable
         Status = DeviceStatus.Available;
     }
 
-    /// <summary>Điểm đa hình #1: mỗi loại thiết bị có điều kiện sẵn sàng riêng.</summary>
     public abstract bool IsReadyForUse();
 
-    /// <summary>Điểm đa hình #2: mỗi loại thiết bị có cách tính điểm ưu tiên riêng.</summary>
     public abstract double GetDefaultPriorityScore();
 
-    /// <summary>Cấp phát thiết bị. Chỉ thành công nếu IsReadyForUse() trả về true.</summary>
     public void Borrow()
     {
         if (!IsReadyForUse())
@@ -42,7 +39,6 @@ public abstract class TeachingDevice : IIdentifiable
         Status = DeviceStatus.Borrowed;
     }
 
-    /// <summary>Trả thiết bị về kho. Chỉ thành công nếu trạng thái hiện tại là Borrowed.</summary>
     public void Return()
     {
         if (Status != DeviceStatus.Borrowed)
@@ -54,7 +50,6 @@ public abstract class TeachingDevice : IIdentifiable
         Status = DeviceStatus.Available;
     }
 
-    /// <summary>Đưa thiết bị đi bảo trì. Chỉ áp dụng khi thiết bị đang ở kho (Available).</summary>
     public void SendToMaintenance()
     {
         if (Status != DeviceStatus.Available)
@@ -66,7 +61,6 @@ public abstract class TeachingDevice : IIdentifiable
         Status = DeviceStatus.UnderMaintenance;
     }
 
-    /// <summary>Kết thúc bảo trì, đưa thiết bị về trạng thái Available.</summary>
     public void CompleteMaintenance()
     {
         if (Status != DeviceStatus.UnderMaintenance)
